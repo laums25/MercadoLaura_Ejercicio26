@@ -3,8 +3,7 @@
 #include <string.h>
 using namespace std;
 
-void factorial(int n)
-double relleno(int n, float **f)
+void relleno(int n, float *f);
     
 int main(){
     
@@ -12,33 +11,23 @@ int main(){
    cout << "numero: ";
    cin >> n;
  
-   float **Matriz = new float *[n];
-   for(int i=0; i<n; i++){
-       Matriz[i]= new float[n];
-       
-   }
-   factorial(n);
+   float *Matriz = new float[n];
    relleno(n, Matriz);
     
     return 0;
 }
 
-void factorial(int n){
-    int i;
-   long double factorial; 
-   factorial=1;
-   for(i=1;i<=n;i++){
-        factorial = factorial * i;
-   }
-   cout << n << factorial << endl;
-    
-    
-}
 
-double relleno(int n, float **f){
-    int k;
-    for (k=1; k<n; k++){
-        f[k]=factorial(k);
+void relleno(int n, float *f)
+{
+    int k; 
+    float nf;
+    nf = 1;
+    for (k=1; k<=n; k++)
+    {
+        nf *=k;
+        f[k]= nf;
+    cout<<f[k]<<endl;
     }  
     
 }

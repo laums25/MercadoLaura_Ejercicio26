@@ -4,7 +4,7 @@
 using namespace std; 
 
 float * read_file(string filename, int *n_points);
-float add_values(float *x, int n_points);
+float add_values(float *x, float *y, int n_points);
 
 int main(){
   float *x=NULL;
@@ -15,7 +15,7 @@ int main(){
   x = read_file("valores_x.txt", &n_x);
   y = read_file("valores_y.txt", &n_y);
   
-  cout << add_values(x, n_x) << " " << add_values(y, n_y) << endl;
+  add_values(x, y, n_x);
   
   return 0;
 }
@@ -54,15 +54,13 @@ float * read_file(string filename, int *n_points){
   return array;
 }
 
-float add_values(float *x, int n_points){
+float add_values(float *x, float *y, int n_points){
   float a=0;
   int i;
-  int j;
   for(i=0;i<n_points;i++){
-      for (j=0, j<n_points,j++){
-          a=x[i]*x[j];
+          a=x[i]*y[i];
+          cout<<a<<endl;
       }
     
-  }
   return a;
 }
